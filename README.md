@@ -61,7 +61,7 @@ $ python main.py
 The expected training time is:
 
 GPUs| Training Epochs | Training Time
-------------- | ------------- | ------------- -
+------------- | ------------- | -------------
 2x 2080 Ti | 100 | 2 hours
 
 In main.py, run the following code to generate your prediction
