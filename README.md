@@ -15,7 +15,7 @@ The following specs were used to create the solutions.
 To reproduct my submission, do the following steps:
 1. [Installation](#installation)
 2. [Prepare Data](#dataset-preparation)
- [Inference](#inference)
+3. [Inference](#inference)
 
 ## Producing Your Own Submission
 To produce your own submission, do the following steps:
