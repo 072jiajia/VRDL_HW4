@@ -55,14 +55,14 @@ It will generate a directory named "prediction" and my predictions with the same
 ## Train and Make Prediction
 You can simply run the following command to train your models and make submission.
 ```
-$ python main.py
+$ python3 main.py
 ```
 
 The expected training time is:
 
 GPUs| Training Epochs | Training Time
 ------------- | ------------- | -------------
-2x 2080 Ti | 100 | 2 hours
+2x 2080 Ti | 250 | 4 hours
 
 In main.py, run the following code to generate your prediction
 ```
