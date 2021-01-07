@@ -150,7 +150,7 @@ def train(model, train_loader, optimizer):
     # Object for visualizing
     Loss = AverageMeter()
 
-    criterion = nn.SmoothL1Loss(beta=16.)
+    criterion = nn.L1Loss()
     for i, (HR, LR) in enumerate(train_loader):
         HR = HR.cuda().float().permute(0, 3, 1, 2)
         LR = LR.cuda().float().permute(0, 3, 1, 2)
