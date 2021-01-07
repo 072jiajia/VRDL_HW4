@@ -3,16 +3,10 @@ import numpy as np
 from torch.utils.data import Dataset
 
 
-def DataAug(HR):
-    if np.random.rand() < 0.25:
-        HR = HR[:, ::-1]
-    return HR
-
-
 class TrainDataset(Dataset):
     ''' TrainDataset
      - partition:  training or validating
-     - crop_size:  crop image when training
+     - crop_size:  crop size of training images
     '''
 
     def __init__(self, filenames, crop_size, partition):
@@ -39,7 +33,6 @@ class TrainDataset(Dataset):
             # Crop and do augmentation
             HR = self.image[item][top: top + self.crop_size,
                                   left: left + self.crop_size]
-            HR = DataAug(HR).copy()
 
             # create LR image
             LR = cv2.resize(HR, (self.crop_size//3, self.crop_size//3))
