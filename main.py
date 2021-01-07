@@ -119,8 +119,6 @@ def main():
     model = model.cuda()
     model = nn.DataParallel(model)
 
-    model.load_state_dict(torch.load('checkpoint.t7'))
-
     # define optimizer and schduler
     optimizer = torch.optim.AdamW(model.parameters(), 1e-4, amsgrad=True)
     scheduler = CosineAnnealingLR(optimizer, epochs)
