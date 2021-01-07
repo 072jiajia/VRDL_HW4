@@ -19,7 +19,6 @@ io = IOStream('run.log')
 trainingimagesize = 144
 augmented_data_path = 'training_data'
 
-
 def prepare_data():
     ''' prepare training data
         for each image, keep a copy in the train dataset
@@ -45,6 +44,7 @@ def prepare_data():
         new_filename = filename.replace("training_hr_images",
                                         augmented_data_path)
         cv2.imwrite(new_filename, img)
+        cv2.imwrite(new_filename, img[:, ::-1])
 
         # for large image, generate augmented images
         for scale in [0.9, 0.8, 0.7, 0.6, 0.5]:
@@ -53,6 +53,8 @@ def prepare_data():
                 break
             new_img = cv2.resize(img, (_W, _H))
             cv2.imwrite(new_filename.replace(".", "_%.1f." % scale), new_img)
+            cv2.imwrite(new_filename.replace(".", "_%.1f." % scale),
+                        new_img[:, ::-1])
 
 
 def LoadData():
@@ -136,7 +138,7 @@ def main():
         psnr = val(model, test_loader)
         if psnr > max_psnr:
             max_psnr = psnr
-            torch.save(model.state_dict(), 'bestmodel.t7')
+            torch.save(model.state_dict(), 'SRFBNx3.t7')
 
         scheduler.step()
 
