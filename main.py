@@ -11,7 +11,7 @@ from dataset import TrainDataset
 from model import SRFBN
 from utils import IOStream, AverageMeter
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "2, 5"
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 batch_size = 18
 epochs = 250
