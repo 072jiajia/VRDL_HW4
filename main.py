@@ -15,9 +15,15 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "2, 5"
 
 batch_size = 18
 epochs = 250
-io = IOStream('run.log')
+
+# crop size of training image
 trainingimagesize = 144
+
+# path of training data afeter data augmentation
 augmented_data_path = 'training_data'
+
+# file to record the results
+io = IOStream('run.log')
 
 def prepare_data():
     ''' prepare training data
@@ -181,10 +187,11 @@ def train(model, train_loader, optimizer):
 def val(model, test_loader):
     ''' Validation '''
     model.eval()
-    criterion = cal_PSNR
 
+    # Object for visualization
     PSNR = AverageMeter()
 
+    criterion = cal_PSNR
     with torch.no_grad():
         for i, (HR, LR) in enumerate(test_loader):
             # load data
