@@ -14,7 +14,7 @@ if __name__ == '__main__':
     os.makedirs(output_path, exist_ok=True)
 
     # load model
-    model_path = 'checkpoint.t7'
+    model_path = 'SRFBNx3.t7'
     model = SRFBN(3, 3, 64, 4, 6).cuda()
     model = nn.DataParallel(model)
     model.load_state_dict(torch.load(model_path))
