@@ -10,7 +10,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 if __name__ == '__main__':
     # create output directory
-    output_path = 'outputs'
+    output_path = 'prediction'
     os.makedirs(output_path, exist_ok=True)
 
     # load model
