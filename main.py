@@ -14,7 +14,7 @@ from utils import IOStream, AverageMeter
 os.environ["CUDA_VISIBLE_DEVICES"] = "2, 5"
 
 batch_size = 18
-epochs = 100
+epochs = 250
 io = IOStream('run.log')
 trainingimagesize = 144
 augmented_data_path = 'training_data'
